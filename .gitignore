@@ -16,3 +16,4 @@
 *.ear
 
 target/
+logs/
