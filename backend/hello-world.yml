@@ -1,0 +1,52 @@
+template: Hello, %s!
+
+defaultName: Stranger
+
+database:
+    driverClass: org.postgresql.Driver
+
+    user: postgres
+
+    password: postgres
+
+    url: jdbc:postgresql://localhost:5433/hello_world
+
+    properties:
+        charSet: UTF-8
+
+    maxWaitForConnection: 1s
+
+    validationQuery: "/* Health Check */ SELECT 1"
+
+    minSize: 8
+
+    maxSize: 32
+
+    checkConnectionWhileIdle: false
+
+    checkConnectionHealthWhenIdleFor: 10s
+
+    closeConnectionIfIdleFor: 1 minute
+
+    properties:
+        hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate.show_sql: true
+
+logging:
+
+  level: INFO
+
+  loggers:
+    com.example.app: DEBUG
+    org.hibernate.SQL: ALL
+
+  console:
+    enabled: true
+    threshold: ALL
+
+  file:
+    enabled: true
+    threshold: ALL
+    currentLogFilename: ./logs/example.log
+    archivedLogFilenamePattern: ./logs/example-%d.log.gz
+    archivedFileCount: 5
